@@ -1,0 +1,10 @@
+#not actually sure how i would know how to find this if i wasn't looking at another containerfile, the docker hub site doesn't seem to put these somewhere nice?
+FROM docker.io/library/ubuntu as ubuntu 
+
+#apparently necessary to get through using apt without user interaction
+ENV DEBIAN_FRONTEND noninteractive
+
+COPY app.py ./
+RUN apt-get update
+RUN yes | apt-get install python3.12
+CMD [ "python3.12", "/app.py", "/persist/" ]
