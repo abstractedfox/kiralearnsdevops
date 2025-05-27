@@ -1,0 +1,5 @@
+#FROM docker.io/library/wordpress:6.8.1-php8.1-apache as wordpress 
+FROM docker.io/library/wordpress:6.7-php8.1-apache as wordpress 
+    #note: literally just made up a random version number that was lower than 'latest'. where do you look to see older versions?
+
+

@@ -1,0 +1,3 @@
+share a file/directory on the host with the container
+
+not useful if the host is fussy about security things or whatever (hello selinux) (tho we later found out there's a flag that makes selinux ok with this)

@@ -3,7 +3,11 @@
 #FROM docker.io/library/python as python 
 
 #not actually sure how i would know how to find this if i wasn't looking at another containerfile, the docker hub site doesn't seem to put these somewhere nice?
-FROM docker.io/library/ubuntu as ubuntu 
+
+#FROM docker.io/library/ubuntu as ubuntu 
+FROM docker.io/library/ubuntu:latest as ubuntu 
+    #see https://docs.docker.com/reference/cli/docker/image/tag/#examples as reference for the components of this url
+
 ENV DEBIAN_FRONTEND noninteractive
 
 COPY app.py ./

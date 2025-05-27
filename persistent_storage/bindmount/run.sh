@@ -1,5 +1,4 @@
 podman build -t "persistantstorage" .
-#podman run -it "persistantstorage"
 
 if [ ! -d ./mountdir ]; then
     mkdir mountdir

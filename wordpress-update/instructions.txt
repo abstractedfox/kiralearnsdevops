@@ -1,0 +1,15 @@
+"run a WordPress in a container using their provided image, an old version, and then update to a new version by using a new image
+
+Have the database in another container and have them talk to each other
+
+You may use docker compose"
+
+q's we have:
+-so wait don't images usually just run the latest version when you start them?
+
+ref's:
+https://kkovacs.eu/docker-compose-rollback/
+    -'docker tag', does that do something we want?
+    -ohh yes ok see https://docs.docker.com/reference/cli/docker/image/tag/#examples
+    
+
