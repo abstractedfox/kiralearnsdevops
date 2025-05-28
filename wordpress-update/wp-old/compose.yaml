@@ -1,0 +1,36 @@
+services:
+  #the names of the services are arbitrary, but if you don't specify an image, podman will try to resolve it to something in its image repo and get that instead!
+  #OH these are the containers' hostnames
+  wordpress_container:
+    #image: docker.io/library/wordpress:6.7-php8.1-apache
+    image: docker.io/library/wordpress:6.8.1-php8.1-apache #avoid using 'latest'
+    
+    ports:
+      # port on host:port in container
+      - "5000:80"
+    environment: 
+      #env variables
+      WORDPRESS_DB_HOST: database 
+        #does this really work by finding the name of the database container and going there? i guess they work out the fine details via magic?
+        #apparently yes!
+
+      WORDPRESS_DB_USER: mysql_user
+      WORDPRESS_DB_PASSWORD: asdf
+      WORDPRESS_DB_NAME: dbtime
+
+  database:
+    image: docker.io/library/mysql:8.0
+
+    environment:
+      MYSQL_DATABASE: dbtime
+      MYSQL_USER: mysql_user
+      MYSQL_PASSWORD: asdf
+      MYSQL_ROOT_PASSWORD: asdf
+    volumes:
+      # (the docker volume):(mount path in the container)
+      - db:/var/lib/mysql
+
+volumes:
+  # per https://docs.docker.com/engine/storage/volumes/ these are created implicitly if they don't exist
+  db:
+    
